@@ -134,7 +134,7 @@ incoming.on('end', function(){
                          	}
                          	return (a);
 						}
-						console.log("Número total de tareas de primer nivel", NumTareasResumenPrimerNivel());
+						console.log("Número total de tareas de primer nivel:", NumTareasResumenPrimerNivel());
 
 
 
@@ -156,7 +156,7 @@ incoming.on('end', function(){
                          	}
                          	return (a);
 						}
-						console.log("Número total de tareas de segundo nivel", NumTareasSegundoNivel());
+						console.log("Número total de tareas de segundo nivel:", NumTareasSegundoNivel());
 
 
 						// OBTENCIÓN DE UN ARRAY CON EL NÚMERO DE TAREAS DE SEGUNDO NIVEL POR TAREA RESUMEN
@@ -204,6 +204,29 @@ incoming.on('end', function(){
                          	}
                          	return (diff_num_wbs);
 						}
+						console.log("Número de Tareas por bloque:", ArrayTareasSegundoNivelPorResumen());
+
+
+						// CÁLCULO DE MEDIA DE TAREAS POR BLOQUE
+						function mediaTareasSegundoNivel(){
+							arrayTareasSegundo = ArrayTareasSegundoNivelPorResumen();
+							mediaTareasSegundo = average(arrayTareasSegundo);
+							return (mediaTareasSegundo);
+						}
+						console.log("Media de tareas por bloque (Resumen):", mediaTareasSegundoNivel());
+
+
+
+						// CÁLCULO DE DESVIACIÓN ESTÁNDAR DE TAREAS POR BLOQUE
+						function stdTareasSegundoNivel(){
+							arrayTareasSegundo = ArrayTareasSegundoNivelPorResumen();
+							stdTareasSegundo = standardDeviation(arrayTareasSegundo);
+							return (stdTareasSegundo);
+
+						}
+						console.log("Desviación estándar de tareas por bloque (Resumen):", stdTareasSegundoNivel());
+
+
 
 
 						// CALCULAR NÚMERO DE VINCULOS
@@ -238,12 +261,12 @@ incoming.on('end', function(){
 							//arrayVinc.push("FF FS SF SS: ");
 							arrayVinc.push("FF: "+FF);
 							arrayVinc.push("FS: "+FS);
-							arrayVinc.push("FS: "+SF);
+							arrayVinc.push("SF: "+SF);
 							arrayVinc.push("SS: "+SS);
 							return (arrayVinc);
 
 						}
-						console.log("Número de vínculos", ArrayVinculos());
+						console.log("Número de tipos de vínculos:", ArrayVinculos());
 
 
 
@@ -301,7 +324,7 @@ incoming.on('end', function(){
 
 							return (arrayTareas);
 						}
-						console.log("Tareas sin vinculación", TareasSinVinculacion());
+						console.log("Tareas sin vinculación:", TareasSinVinculacion());
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -337,7 +360,7 @@ incoming.on('end', function(){
                          	}
                          	return (a);
 						}
-						console.log("Número de Hitos", NumHitos());
+						console.log("Número de Hitos:", NumHitos());
 
 
 
@@ -368,7 +391,7 @@ incoming.on('end', function(){
                          	}
                          	return (arrayDiffFechaHitos);
 						}
-						console.log("Array de Diferencia de días entre Hitos", DiffTiempoHitos());
+						console.log("Diferencia de tiempo en días entre Hitos consecutivos:", DiffTiempoHitos());
 
 						
 
@@ -400,7 +423,7 @@ incoming.on('end', function(){
                          	mediaTiempo = average(arrayDiffFechaHitos);
                          	return (mediaTiempo);
 						}
-						console.log("Media de diferencia de tiempo entre Hitos", mediaTiempoHitos());
+						console.log("Media de tiempo en días entre Hitos consecutivos:", mediaTiempoHitos());
 
 
 
@@ -433,7 +456,7 @@ incoming.on('end', function(){
                          	return (stdTiempo);
 
 						}
-						console.log("Desviación estándar de diferencia de tiempo entre Hitos", stdTiempoHitos());
+						console.log("Desviación estándar de tiempo en días entre Hitos consecutivos:", stdTiempoHitos());
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -465,7 +488,7 @@ incoming.on('end', function(){
                          	}
                          	return (a);
 						}
-						console.log("Número de Recursos", NumRecursos());
+						console.log("Número de Recursos:", NumRecursos());
 
 
 						// ARRAY CON EL TIPO DE RECURSOS
@@ -497,7 +520,7 @@ incoming.on('end', function(){
 							return (arrayTipoRecursos);
 
 						}
-						console.log("Número de tipos de Recursos", ArrayTipoRecursos());
+						console.log("Número de tipos de Recursos:", ArrayTipoRecursos());
 
 
 
@@ -521,7 +544,7 @@ incoming.on('end', function(){
 							return (arraySobreasignados);
 
 						}
-						console.log("Recursos Sobreasignados", ArraySobreasignados());
+						console.log("Recursos Sobreasignados:", ArraySobreasignados());
 
 
 
